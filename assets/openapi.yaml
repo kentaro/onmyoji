@@ -1,0 +1,57 @@
+openapi: 3.0.1
+info:
+  title: Onmyoji
+  description: ChatGPT as an IDE for IoT device development.
+  version: 'v1'
+servers:
+  - url: http://localhost:4000
+paths:
+  /commit:
+    post:
+      operationId: commit
+      summary: Commit files that ChatGPT writes.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/commitRequest'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/commitResponse'
+components:
+  schemas:
+    commitRequest:
+      type: object
+      properties:
+        files:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                description: The name of the file.
+                required: true
+              content:
+                type: string
+                description: The content of the file.
+                required: true
+      required:
+      - files
+    commitResponse:
+      type: object
+      properties:
+        result:
+          type: string
+          description: The result of the commit.
+        prompt:
+          type: string
+          description: The prompt to tell ChatGPT what to do next.
+      required:
+        - result
+        - prompt

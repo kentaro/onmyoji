@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Onmyoji",
+  "name_for_model": "Onmyoji",
+  "description_for_human": "ChatGPT as an IDE for IoT device development.",
+  "description_for_model": "ChatGPT as an IDE for IoT device development.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "http://localhost:4000/openapi.yaml",
+    "is_user_authenticated": false
+  },
+  "logo_url": "http://localhost:4000/logo.png",
+  "contact_email": "kentarok@gmail.com"
+}
